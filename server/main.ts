@@ -1,10 +1,16 @@
-import getContent from './procedures/getContent'
-import updateContent from './procedures/updateContent'
-import { router } from './trpc'
+import { createHTTPServer } from '@trpc/server/adapters/standalone'
 
-export const appRouter = router({
-  getContent,
-  updateContent,
+import { appRouter } from './router'
+
+const PORT = 3000
+
+const server = createHTTPServer({
+  // createContext,
+  router: appRouter,
+  batching: {
+    enabled: false,
+  },
 })
 
-export type AppRouter = typeof appRouter
+server.listen(PORT)
+console.log(`Server listening on port ${PORT}`)

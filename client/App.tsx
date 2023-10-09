@@ -1,5 +1,5 @@
 import { api } from './api'
-import {Alert, LinearProgress} from "@mui/material"
+import {Alert, LinearProgress, Typography} from "@mui/material"
 
 function App() {
   const { data, isLoading, error } = api.getContent.useQuery()
@@ -9,12 +9,12 @@ function App() {
   }
 
   if (error) {
-    return <Alert>{error.message}</Alert>
+    return <Alert color='error'>{error.message}</Alert>
   }
 
   return (
     <>
-      <h1>Content</h1>
+      <Typography variant='h1'>Content</Typography>
       <div>
         {data.content}
       </div>

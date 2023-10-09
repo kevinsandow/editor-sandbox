@@ -1,5 +1,5 @@
 import CssBaseline from '@mui/material/CssBaseline'
-import { QueryClient } from '@tanstack/react-query'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import '@fontsource/roboto/300.css'
@@ -16,8 +16,10 @@ const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <api.Provider queryClient={queryClient} client={apiClient}>
-      <CssBaseline />
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <CssBaseline />
+        <App />
+      </QueryClientProvider>
     </api.Provider>
   </StrictMode>,
 )
