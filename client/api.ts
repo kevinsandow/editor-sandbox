@@ -1,9 +1,9 @@
-import {createTRPCReact} from "@trpc/react-query";
-import {createContext} from "react";
-import {QueryClient} from "@tanstack/react-query";
-import {httpLink} from "@trpc/client";
+import { createTRPCReact } from '@trpc/react-query'
+import { createContext } from 'react'
+import { QueryClient } from '@tanstack/react-query'
+import { httpLink } from '@trpc/client'
 
-import {AppRouter} from "../server/router.ts";
+import { AppRouter } from '../server/router'
 
 export const api = createTRPCReact<AppRouter>({
   context: createContext<QueryClient | undefined>(undefined),
