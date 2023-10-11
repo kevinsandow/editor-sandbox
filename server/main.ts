@@ -2,10 +2,9 @@ import { createHTTPServer } from '@trpc/server/adapters/standalone'
 
 import { appRouter } from './router'
 
-const PORT = 3000
+const PORT = 5100
 
 const server = createHTTPServer({
-  // createContext,
   router: appRouter,
   batching: {
     enabled: false,

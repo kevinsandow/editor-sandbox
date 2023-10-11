@@ -27,7 +27,6 @@ function App() {
               sx={{
                 fontSize: 16,
                 ml: 3,
-                // color: 'secondary.main',
               }}
             >
               Add
