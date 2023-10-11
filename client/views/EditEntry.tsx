@@ -21,7 +21,10 @@ export default function EditEntry() {
   })
   const { mutate } = api.updateEntry.useMutation({
     onSuccess: async () => {
-      await Promise.all([apiCtx.listEntries.invalidate()])
+      await Promise.all([
+        apiCtx.listEntries.invalidate(),
+        apiCtx.getEntry.invalidate(id),
+      ])
 
       navigate('/')
     },
